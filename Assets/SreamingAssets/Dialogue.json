@@ -1,0 +1,76 @@
+{
+  "nodes": [
+    {
+      "ID": 1,
+      "scene": 0,
+      "dialogueText": "Dialogue 1",
+      "speakerID": 10001
+    },
+    {
+      "ID": 2,
+      "scene": 0,
+      "dialogueText": "Dialogue 2",
+      "speakerID": 10002
+    },
+    {
+      "ID": 3,
+      "scene": 0,
+      "dialogueText": "Dialogue 3",
+      "speakerID": 10001
+    },
+    {
+      "ID": 4,
+      "scene": 0,
+      "dialogueText": "Dialogue 4",
+      "speakerID": 10002
+    },
+    {
+      "ID": 5,
+      "scene": 0,
+      "dialogueText": "Dialogue 5",
+      "speakerID": 10001,
+      "options": [
+        {
+          "text": "Option 1",
+          "favorabilityChange": -10,
+          "nextDialogueID": 6
+        },
+        {
+          "text": "Option 2",
+          "favorabilityChange": 10,
+          "nextDialogueID": 7
+        },
+        {
+          "text": "Option 3",
+          "favorabilityChange": 0,
+          "nextDialogueID": 8
+        }
+      ]
+    },
+    {
+      "ID": 6,
+      "scene": 0,
+      "dialogueText": "Choose Option 1",
+      "speakerID": 10002
+    },
+    {
+      "ID": 7,
+      "scene": 0,
+      "dialogueText": "Choose Option 2",
+      "speakerID": 10002
+    },
+    {
+      "ID": 8,
+      "scene": 0,
+      "dialogueText": "Choose Option 3",
+      "speakerID": 10002
+    },
+    {
+      "ID": 9,
+      "scene": 0,
+      "dialogueText": "Test End",
+      "speakerID": 10001
+    }
+
+  ]
+}

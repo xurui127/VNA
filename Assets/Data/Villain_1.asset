@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ff32c59f20fe3488359cb962b9596a, type: 3}
+  m_Name: Villain_1
+  m_EditorClassIdentifier: 
+  id: 10002
+  role: 2
+  characterName: Villain_1
+  noramalExpression: {fileID: 0}
+  happyExpression: {fileID: 0}
+  sadExpression: {fileID: 0}
+  angryExpression: {fileID: 0}
