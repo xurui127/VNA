@@ -9,4 +9,5 @@ public class DialogueNode
     public string dialogueText;
     public int speakerID;
     public List<DialogueOption> options;
+    public int nextDialogueID;
 }

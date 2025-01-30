@@ -4,25 +4,29 @@
       "ID": 1,
       "scene": 0,
       "dialogueText": "Dialogue 1",
-      "speakerID": 10001
+      "speakerID": 10001,
+      "nextDialogueID": 2
     },
     {
       "ID": 2,
       "scene": 0,
       "dialogueText": "Dialogue 2",
-      "speakerID": 10002
+      "speakerID": 10002,
+      "nextDialogueID": 3
     },
     {
       "ID": 3,
       "scene": 0,
       "dialogueText": "Dialogue 3",
-      "speakerID": 10001
+      "speakerID": 10001,
+      "nextDialogueID": 4
     },
     {
       "ID": 4,
       "scene": 0,
       "dialogueText": "Dialogue 4",
-      "speakerID": 10002
+      "speakerID": 10002,
+      "nextDialogueID": 5
     },
     {
       "ID": 5,
@@ -51,26 +55,43 @@
       "ID": 6,
       "scene": 0,
       "dialogueText": "Choose Option 1",
-      "speakerID": 10002
+      "speakerID": 10002,
+      "nextDialogueID": 9
     },
     {
       "ID": 7,
       "scene": 0,
       "dialogueText": "Choose Option 2",
-      "speakerID": 10002
+      "speakerID": 10002,
+      "nextDialogueID": 10
     },
     {
       "ID": 8,
       "scene": 0,
       "dialogueText": "Choose Option 3",
-      "speakerID": 10002
+      "speakerID": 10002,
+      "nextDialogueID": 11
     },
     {
       "ID": 9,
       "scene": 0,
-      "dialogueText": "Test End",
-      "speakerID": 10001
+      "dialogueText": "Option 1 End",
+      "speakerID": 10001,
+      "nextDialogueID": 9
+    },
+    {
+      "ID": 10,
+      "scene": 0,
+      "dialogueText": "Option 2 End",
+      "speakerID": 10001,
+      "nextDialogueID": 10
+    },
+    {
+      "ID": 11,
+      "scene": 0,
+      "dialogueText": "Option 3 End",
+      "speakerID": 10001,
+      "nextDialogueID": 11
     }
-
   ]
 }

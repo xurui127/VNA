@@ -1,8 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 
 [Serializable]
@@ -12,22 +11,68 @@ public class DialogueDate
 }
 public class DialogueManager : MonoBehaviour
 {
+    [SerializeField] private TextPanle TextPanle;
+    [SerializeField] private OptionPanel optionPanel;
+
     private Dictionary<int, DialogueNode> dialogueTree;
     private Dictionary<int, CharacterInstance> characters;
     private Dictionary<int, float> relationDic;
 
+    private int currentDialogue = 1;
+
+
+    private float lastClickTime = 0;
+    private float lastCooldown = 0.5f;
     private void Start()
     {
         LoadDialogue();
         LoadRelation();
+        ShowDialogue(currentDialogue);
     }
-    public void ChooseOption(DialogueOption option)
-    {
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && ClickCooldown())
+        {
+            lastClickTime = Time.time;
+            if (dialogueTree[currentDialogue].options.Count == 0 && currentDialogue > 0 )
+            {
+                ShowDialogue(currentDialogue);
+            }
+        }
     }
+ 
     public void ShowDialogue(int dialogueID)
     {
+        Debug.Log($"Current Dialogue ID: {dialogueID}");
 
+        if (dialogueTree.ContainsKey(dialogueID))
+        {
+            var dialogue = dialogueTree[dialogueID];
+            TextPanle.text.text = dialogue.dialogueText;
+            optionPanel.ClearOptions();
+ 
+            if (dialogue.options != null && dialogue.options.Count > 0)
+            {
+                foreach (var option in dialogue.options)
+                {
+                    int nextID = option.nextDialogueID;
+                    Debug.Log($"Creating button: {option.text}, nextID = {nextID}");
+                    optionPanel.InitOptionButton(option.text, () => ShowDialogue(nextID));
+                }
+            }
+            else
+            {
+                currentDialogue = dialogue.nextDialogueID;
+                Debug.Log($"Next Dialogue ID set to: {currentDialogue}");
+            }
+
+
+        }
+        else
+        {
+            Debug.LogWarning($"DialogueID {dialogueID} not found.");
+        }
     }
     private void LoadDialogue()
     {
@@ -70,7 +115,13 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.LogWarning("NOT FOUND charcters files");
         }
-       
+
+    }
+
+    private bool ClickCooldown()
+    {
+
+        return Time.time - lastClickTime > lastCooldown;
     }
 
 
