@@ -1,9 +1,9 @@
-using UnityEngine;
+using System;
 
-public class CharacterInstance : MonoBehaviour
+[Serializable]
+public class CharacterInstance
 {
     public Character_SO characterData;
-    public string characterName;
     public float favorability;
     public CharacterState characterState;
 
