@@ -7,7 +7,7 @@ public class OptionPanel : MonoBehaviour
 {
     [SerializeField] GameObject buttonPrefab;
 
-    internal void InitOptionButton(string newText,Action onClickAction)
+    internal void InitOptionButton(string newText,Action onClickAction, Action favorabilityChange)
     {
         var go = Instantiate(buttonPrefab, transform);
         var text = go.GetComponentInChildren<TMP_Text>();
@@ -25,8 +25,13 @@ public class OptionPanel : MonoBehaviour
 
             Debug.Log($"Button Clicked: {newText}");
             onClickAction();
+            favorabilityChange();
             ClearOptions();
             });
+    }
+    internal bool HasOption()
+    {
+        return transform.childCount > 0;
     }
     public void ClearOptions()
     {

@@ -19,3 +19,6 @@ MonoBehaviour:
   happyExpression: {fileID: 0}
   sadExpression: {fileID: 0}
   angryExpression: {fileID: 0}
+  normal: {r: 1, g: 0.995283, b: 0.995283, a: 1}
+  happy: {r: 1, g: 0, b: 0, a: 1}
+  sad: {r: 0, g: 0.37826753, b: 1, a: 1}

@@ -8,6 +8,7 @@ public class DialogueNode
     public int scene;
     public string dialogueText;
     public int speakerID;
+    public bool isLeft;
     public List<DialogueOption> options;
     public int nextDialogueID;
 }

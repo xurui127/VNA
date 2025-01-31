@@ -29,5 +29,9 @@ public class Character_SO : ScriptableObject
     public Sprite sadExpression;
     public Sprite angryExpression;
 
+    public Color normal;
+    public Color happy;
+    public Color sad;
+
    
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueOption
 {
     public string text;
-    public float favorability;
+    public float favorabilityChange;
     public int nextDialogueID;
 
 }

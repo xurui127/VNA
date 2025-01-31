@@ -5,6 +5,7 @@
       "scene": 0,
       "dialogueText": "Dialogue 1",
       "speakerID": 10001,
+      "isLeft": true,
       "nextDialogueID": 2
     },
     {
@@ -12,6 +13,7 @@
       "scene": 0,
       "dialogueText": "Dialogue 2",
       "speakerID": 10002,
+      "isLeft": false,
       "nextDialogueID": 3
     },
     {
@@ -19,6 +21,7 @@
       "scene": 0,
       "dialogueText": "Dialogue 3",
       "speakerID": 10001,
+      "isLeft": true,
       "nextDialogueID": 4
     },
     {
@@ -26,6 +29,7 @@
       "scene": 0,
       "dialogueText": "Dialogue 4",
       "speakerID": 10002,
+      "isLeft": false,
       "nextDialogueID": 5
     },
     {
@@ -33,19 +37,20 @@
       "scene": 0,
       "dialogueText": "Dialogue 5",
       "speakerID": 10001,
+      "isLeft": true,
       "options": [
         {
-          "text": "Option 1",
+          "text": "Option 1: -10 ",
           "favorabilityChange": -10,
           "nextDialogueID": 6
         },
         {
-          "text": "Option 2",
+          "text": "Option 2: + 10 ",
           "favorabilityChange": 10,
           "nextDialogueID": 7
         },
         {
-          "text": "Option 3",
+          "text": "Option 3: 0  ",
           "favorabilityChange": 0,
           "nextDialogueID": 8
         }
@@ -54,44 +59,50 @@
     {
       "ID": 6,
       "scene": 0,
-      "dialogueText": "Choose Option 1",
+      "dialogueText": "Choose Option 1 : Favorability Change : - 10",
       "speakerID": 10002,
+      "isLeft": false,
       "nextDialogueID": 9
     },
     {
       "ID": 7,
       "scene": 0,
-      "dialogueText": "Choose Option 2",
+      "dialogueText": "Choose Option 2: Favorability Change : + 10",
       "speakerID": 10002,
+      "isLeft": false,
       "nextDialogueID": 10
     },
     {
       "ID": 8,
       "scene": 0,
-      "dialogueText": "Choose Option 3",
+      "dialogueText": "Choose Option 3: Favorability Change : 0",
       "speakerID": 10002,
+      "isLeft": false,
       "nextDialogueID": 11
     },
     {
       "ID": 9,
-      "scene": 0,
+      "scene": 1,
       "dialogueText": "Option 1 End",
-      "speakerID": 10001,
-      "nextDialogueID": 9
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 1
     },
     {
       "ID": 10,
-      "scene": 0,
+      "scene": 2,
       "dialogueText": "Option 2 End",
-      "speakerID": 10001,
-      "nextDialogueID": 10
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 2
     },
     {
       "ID": 11,
-      "scene": 0,
+      "scene": 3,
       "dialogueText": "Option 3 End",
-      "speakerID": 10001,
-      "nextDialogueID": 11
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 3
     }
   ]
 }

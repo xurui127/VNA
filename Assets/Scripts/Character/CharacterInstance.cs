@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class CharacterInstance
@@ -14,16 +15,22 @@ public class CharacterInstance
         this.characterState = CharacterState.Normal;
     }
 
-    public void SetExpression(float expression)
+    public Color SetExpression(float favobility)
     {
+        if (favobility == 0)
+        {
+            return characterData.normal;
+        }
+        else if (favobility >= 10)
+        {
+            return characterData.happy;
+        }
+        else if (favobility < 0)
+        {
+            return characterData.sad;
+        }
 
+        return characterData.normal;
     }
-    public void ChangeFavorability(float favorability)
-    {
 
-    }
-    public void ReactToPlayer(int choice)
-    {
-
-    }
 }
