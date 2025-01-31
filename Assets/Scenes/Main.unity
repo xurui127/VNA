@@ -981,7 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5967bfce643cb4eba663cfd331eed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  camera: {fileID: 519420031}
   TextPanle: {fileID: 224732573}
   optionPanel: {fileID: 1880076217}
   left: {fileID: 1587367310}

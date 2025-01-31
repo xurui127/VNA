@@ -1,0 +1,108 @@
+{
+  "nodes": [
+    {
+      "ID": 1,
+      "scene": 0,
+      "dialogueText": "Good morning! How are you feeling today?",
+      "speakerID": 10001,
+      "isLeft": true,
+      "nextDialogueID": 2
+    },
+    {
+      "ID": 2,
+      "scene": 0,
+      "dialogueText": "Hmm… you look a bit tired, are you OK?",
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 3
+    },
+    {
+      "ID": 3,
+      "scene": 0,
+      "dialogueText": "There’s a lot to do today. Are you ready?",
+      "speakerID": 10001,
+      "isLeft": true,
+      "nextDialogueID": 4
+    },
+    {
+      "ID": 4,
+      "scene": 0,
+      "dialogueText": "Yeah, I think I need a cup of coffee to wake up first.",
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 5
+    },
+    {
+      "ID": 5,
+      "scene": 0,
+      "dialogueText": "How do you want to start your day?",
+      "speakerID": 10001,
+      "isLeft": true,
+      "options": [
+        {
+          "text": "Option 1: Go straight to work (-10)",
+          "favorabilityChange": -10,
+          "nextDialogueID": 6
+        },
+        {
+          "text": "Option 2: Have breakfast first (+10)",
+          "favorabilityChange": 10,
+          "nextDialogueID": 7
+        },
+        {
+          "text": "Option 3: Take a walk (0)",
+          "favorabilityChange": 0,
+          "nextDialogueID": 8
+        }
+      ]
+    },
+    {
+      "ID": 6,
+      "scene": 0,
+      "dialogueText": "You head straight to work, looking determined!",
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 9
+    },
+    {
+      "ID": 7,
+      "scene": 0,
+      "dialogueText": "You decide to have breakfast first and fuel up for the day!",
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 10
+    },
+    {
+      "ID": 8,
+      "scene": 0,
+      "dialogueText": "You choose to take a walk to clear your mind.",
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 11
+    },
+    {
+      "ID": 9,
+      "scene": 1,
+      "dialogueText": "Option 1 End: You start your busy day at work.",
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 1
+    },
+    {
+      "ID": 10,
+      "scene": 2,
+      "dialogueText": "Option 2 End: Breakfast gives you energy for the day!",
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 2
+    },
+    {
+      "ID": 11,
+      "scene": 3,
+      "dialogueText": "Option 3 End: The walk helps you feel refreshed.",
+      "speakerID": 10002,
+      "isLeft": false,
+      "nextDialogueID": 3
+    }
+  ]
+}
