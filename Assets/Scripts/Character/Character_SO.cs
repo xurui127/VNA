@@ -1,6 +1,3 @@
-using UnityEngine.UI;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum Role
@@ -17,7 +14,7 @@ public enum CharacterState
     Angry = 3,
 }
 
-[CreateAssetMenu(fileName = "NewCharacter",menuName = "Dialogue System/Character")]
+[CreateAssetMenu(fileName = "NewCharacter", menuName = "Dialogue System/Character")]
 public class Character_SO : ScriptableObject
 {
     public int id;
@@ -33,5 +30,5 @@ public class Character_SO : ScriptableObject
     public Color happy;
     public Color sad;
 
-   
+
 }

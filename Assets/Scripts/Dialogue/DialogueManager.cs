@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Unity.VisualScripting;
-using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -174,7 +172,7 @@ public class DialogueManager : MonoBehaviour
                 var newCharacter = new CharacterInstance(character);
                 relationDic[newCharacter.characterData.id] = newCharacter.favorability;
                 charactersDic.Add(newCharacter.characterData.id, newCharacter);
-          
+
             }
 
             Debug.Log($"Character loaded successfully. Total Characrers:{characters.Length}");
@@ -192,7 +190,7 @@ public class DialogueManager : MonoBehaviour
 
         return Time.time - lastClickTime > lastCooldown;
     }
-    
+
     //TODO: Change after
     private void SetSceneColor(int index)
     {
@@ -204,11 +202,11 @@ public class DialogueManager : MonoBehaviour
         {
             camera.backgroundColor = one;
         }
-       else if (index == 2)
+        else if (index == 2)
         {
             camera.backgroundColor = two;
         }
-        else 
+        else
         {
             camera.backgroundColor = three;
         }
