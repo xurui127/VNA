@@ -90,7 +90,7 @@ public class DialogueManager : MonoBehaviour
                     //Debug.Log($"Creating button: {option.text}, nextID = {nextID}");
                     optionPanel.InitOptionButton(option.text,
                                                  () => ShowDialogue(nextID),
-                                                 () => ChangeFavorability(speakerID, favorability));
+                                                 () => ChangeFavorability(id, favorability));
                 }
             }
             else
