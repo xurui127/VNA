@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1ff32c59f20fe3488359cb962b9596a, type: 3}
-  m_Name: Villain_1
+  m_Name: Protagonist_1
   m_EditorClassIdentifier: 
-  id: 10002
-  role: 2
-  characterName: Villain_1
+  id: 10000
+  role: 0
+  characterName: Me
   noramalExpression: {fileID: 0}
   happyExpression: {fileID: 0}
   sadExpression: {fileID: 0}
   angryExpression: {fileID: 0}
-  normal: {r: 1, g: 0.995283, b: 0.995283, a: 1}
-  happy: {r: 1, g: 0, b: 0, a: 1}
-  sad: {r: 0, g: 0.37826753, b: 1, a: 1}
+  normal: {r: 0, g: 0, b: 0, a: 0}
+  happy: {r: 0, g: 0, b: 0, a: 0}
+  sad: {r: 0, g: 0, b: 0, a: 0}

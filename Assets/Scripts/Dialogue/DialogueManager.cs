@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 
@@ -12,8 +13,7 @@ public class DialogueDate
 }
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] private Camera camera;
-
+    [SerializeField] private BackgroundPanel bgPanel; 
     [SerializeField] private TextPanle TextPanle;
     [SerializeField] private OptionPanel optionPanel;
 
@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour
 
     private Dictionary<int, DialogueNode> dialogueTree;
     private Dictionary<int, CharacterInstance> charactersDic;
+    private Dictionary<int, Sprite> bgDic;
     private Dictionary<int, float> relationDic;
 
 
@@ -31,15 +32,15 @@ public class DialogueManager : MonoBehaviour
     private float lastClickTime = 0;
     private float lastCooldown = 0.5f;
 
-    [Header("Test")]
-    [SerializeField] Color zero;
-    [SerializeField] Color one;
-    [SerializeField] Color two;
-    [SerializeField] Color three;
-    private void Start()
+    private void Awake()
     {
         LoadDialogue();
         LoadRelation();
+        LoadBG();
+    }
+    private void Start()
+    {
+
         ShowDialogue(currentDialogue);
     }
 
@@ -56,7 +57,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowDialogue(int dialogueID)
     {
-        Debug.Log($"Current Dialogue ID: {dialogueID}");
+        //Debug.Log($"Current Dialogue ID: {dialogueID}");
         ResetSlot();
 
 
@@ -71,7 +72,8 @@ public class DialogueManager : MonoBehaviour
             TextPanle.text.text = dialogue.dialogueText;
 
             var id = dialogue.speakerID;
-            IsLeftSlot(dialogue.isLeft, id);
+            var role = charactersDic[id].characterData.role;
+            IsLeftSlot(dialogue.isLeft, id, role);
 
             var scene = dialogue.scene;
             optionPanel.ClearOptions();
@@ -85,7 +87,7 @@ public class DialogueManager : MonoBehaviour
                     var speakerID = dialogueTree[nextID].speakerID;
                     var favorability = option.favorabilityChange;
 
-                    Debug.Log($"Creating button: {option.text}, nextID = {nextID}");
+                    //Debug.Log($"Creating button: {option.text}, nextID = {nextID}");
                     optionPanel.InitOptionButton(option.text,
                                                  () => ShowDialogue(nextID),
                                                  () => ChangeFavorability(speakerID, favorability));
@@ -94,9 +96,9 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 currentDialogue = dialogue.nextDialogueID;
-                Debug.Log($"Next Dialogue ID set to: {currentDialogue}");
+                //Debug.Log($"Next Dialogue ID set to: {currentDialogue}");
             }
-            SetSceneColor(scene);
+            SetBackground(scene);
         }
         else
         {
@@ -108,27 +110,36 @@ public class DialogueManager : MonoBehaviour
     {
         relationDic[id] += favorability;
 
-        foreach (var key in relationDic.Keys)
-        {
-            Debug.Log($"Relations : {key}: {relationDic[key]}");
-        }
+        //foreach (var key in relationDic.Keys)
+        //{
+        //    Debug.Log($"Relations : {key}: {relationDic[key]}");
+        //}
     }
 
-    private void IsLeftSlot(bool isLeft, int id)
+    private void IsLeftSlot(bool isLeft, int id, Role role)
     {
-
-        if (isLeft)
+        if (role != Role.Protagonist)
         {
-            left.gameObject.SetActive(true);
-            right.gameObject.SetActive(false);
-            left.color = charactersDic[id].SetExpression(relationDic[id]);
+            if (isLeft)
+            {
+                left.gameObject.SetActive(true);
+                right.gameObject.SetActive(false);
+                Image image = left.GetComponent<Image>();
+                image.sprite = charactersDic[id].SetExpression(relationDic[id]);
+            }
+            else
+            {
+                left.gameObject.SetActive(false);
+                right.gameObject.SetActive(true);
+                Image image = right.GetComponent<Image>();
+                image.sprite = charactersDic[id].SetExpression(relationDic[id]);
+            }
         }
         else
         {
-            left.gameObject.SetActive(false);
-            right.gameObject.SetActive(true);
-            right.color = charactersDic[id].SetExpression(relationDic[id]);
+            ResetSlot();
         }
+        
 
     }
 
@@ -139,7 +150,7 @@ public class DialogueManager : MonoBehaviour
     }
     private void LoadDialogue()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, "Dialogue.json");
+        string filePath = Path.Combine(Application.streamingAssetsPath, "Dialogue_1.json");
 
         if (File.Exists(filePath))
         {
@@ -159,6 +170,23 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void LoadBG()
+    {
+        Background_SO[] bgs = Resources.LoadAll<Background_SO>("Backgrounds");
+        bgDic = new();
+        if (bgs.Length != 0)
+        {
+            foreach (var bg in bgs)
+            {
+                bgDic[bg.id] = bg.bg;
+            }
+            Debug.Log($"Background loaded successfully. Total background:{bgs.Length}");
+        }
+        else
+        {
+            Debug.LogWarning("NOT FOUND background files");
+        }
+    }
     //TODO: Change to JSON load after
     private void LoadRelation()
     {
@@ -191,24 +219,9 @@ public class DialogueManager : MonoBehaviour
         return Time.time - lastClickTime > lastCooldown;
     }
 
-    //TODO: Change after
-    private void SetSceneColor(int index)
+    private void SetBackground(int index)
     {
-        if (index == 0)
-        {
-            camera.backgroundColor = zero;
-        }
-        else if (index == 1)
-        {
-            camera.backgroundColor = one;
-        }
-        else if (index == 2)
-        {
-            camera.backgroundColor = two;
-        }
-        else
-        {
-            camera.backgroundColor = three;
-        }
+        bgPanel.bg.sprite = bgDic[index];
     }
+
 }

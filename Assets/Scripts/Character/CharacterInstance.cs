@@ -15,22 +15,23 @@ public class CharacterInstance
         this.characterState = CharacterState.Normal;
     }
 
-    public Color SetExpression(float favobility)
+    public Sprite SetExpression(float favobility)
     {
         if (favobility == 0)
         {
-            return characterData.normal;
+            return characterData.noramalExpression;
         }
         else if (favobility >= 10)
         {
-            return characterData.happy;
+            return characterData.happyExpression;
         }
         else if (favobility < 0)
         {
-            return characterData.sad;
+            return characterData.sadExpression;
         }
 
-        return characterData.normal;
+        return characterData.noramalExpression;
+
     }
 
 }
