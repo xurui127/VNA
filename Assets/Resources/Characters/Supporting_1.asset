@@ -15,9 +15,9 @@ MonoBehaviour:
   id: 10001
   role: 1
   characterName: Suppporting_1
-  noramalExpression: {fileID: 0}
-  happyExpression: {fileID: 0}
-  sadExpression: {fileID: 0}
+  noramalExpression: {fileID: 21300000, guid: 69371ce338359284391a6fa485baabf3, type: 3}
+  happyExpression: {fileID: 21300000, guid: 51c79075836556249b4a442d90b17671, type: 3}
+  sadExpression: {fileID: 21300000, guid: 9eff9e1ff19f3564095e4520894ed88c, type: 3}
   angryExpression: {fileID: 0}
   normal: {r: 1, g: 1, b: 1, a: 1}
   happy: {r: 1, g: 0, b: 0, a: 1}

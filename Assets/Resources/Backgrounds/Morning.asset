@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085ee92bd86b2214da667cdecfbb50ff, type: 3}
   m_Name: Morning
   m_EditorClassIdentifier: 
-  id: 0
-  bg: {fileID: 0}
+  id: 20002
+  bg: {fileID: 21300000, guid: 25e4dcf0b75bb6041adb293d7202acde, type: 3}
